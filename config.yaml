@@ -18,7 +18,7 @@ carpentry: 'incubator'
 carpentry_description: 'Lesson Description'
 
 # Overall title for pages.
-title: 'Lesson Title' # FIXME
+title: 'Machine Learning for Biomedical Science' 
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
 created: ~ # FIXME: ( ~ means empty, replace with date formatted as above)
@@ -40,7 +40,7 @@ source: 'https://github.com/carpentries/workbench-template-rmd' # FIXME
 branch: 'main'
 
 # Who to contact if there are any issues
-contact: 'team@carpentries.org' # FIXME
+contact: 'susan.mcclatchy@jax.org'
 
 # Navigation ------------------------------------------------
 #
@@ -67,6 +67,12 @@ contact: 'team@carpentries.org' # FIXME
 # Order of episodes in your lesson
 episodes: 
 - introduction.Rmd
+- clustering.Rmd
+- conditional-probabilities-expectations.Rmd
+- smoothing.Rmd
+- class-prediction.Rmd
+- cross-validation.Rmd
+
 
 # Information for Learners
 learners: 
