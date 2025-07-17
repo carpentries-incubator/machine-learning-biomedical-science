@@ -38,7 +38,7 @@ seen how this leads to over-fitting.
 
 Let's start by loading the tissue gene expression dataset:
 
-```{r}
+```{r, eval=FALSE}
 library(tissuesGeneExpression)
 data(tissuesGeneExpression)
 ```

@@ -20,7 +20,7 @@ exercises: 30
 
 We will demonstrate the concepts and code needed to perform clustering analysis with the tissue gene expression data:
 
-```{r}
+```{r, eval=FALSE}
 library(tissuesGeneExpression)
 data(tissuesGeneExpression)
 ```
