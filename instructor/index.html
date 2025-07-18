@@ -379,8 +379,8 @@ ML?”<br>::::::
  6. <a href="cross-validation.html">Cross-validation</a>
 </td>
 <td>
-“How can the best configuration of parameters be selected for a machine
-learning model using only the data available?”<br>::::::
+How can the best configuration of parameters be selected for a machine
+learning model using only the data available?<br>::::::
 </td>
 </tr><tr><td>
 <span class="visually-hidden">Duration: </span>05h 10m
@@ -422,20 +422,19 @@ for step 3 only. You still need to create a project with step 2.</p>
 <hr class="half-width"><p>Download the tissue gene expression <a href="https://github.com/genomicsclass/tissuesGeneExpression/blob/master/data/tissuesGeneExpression.rda" class="external-link">data
 directly from Github</a> and place them in your new <code>data</code>
 directory.</p>
-<p>Load the library and data. ~~~ library(tissuesGeneExpression)
-data(tissuesGeneExpression) ~~~ {: .r}</p>
 <p>The data represent RNA expression levels for eight tissues, each with
 several individuals.</p>
 </section><section><h2 class="section-heading" id="software-setup">Software Setup<a class="anchor" aria-label="anchor" href="#software-setup"></a></h2>
 <hr class="half-width"><ol style="list-style-type: decimal"><li>
 <p>Install R packages and load the libraries.</p>
-<pre><code><span><span class="fu">install.packages</span><span class="op">(</span><span class="st">"rafalib"</span>, <span class="st">"RColorBrewer"</span>, <span class="st">"gplots"</span>, <span class="st">"UsingR"</span>, <span class="st">"class"</span>, <span class="st">"caret"</span><span class="op">)</span></span>
+<pre><code><span><span class="fu">install.packages</span><span class="op">(</span><span class="st">"rafalib"</span>, <span class="st">"RColorBrewer"</span>, <span class="st">"gplots"</span>, <span class="st">"UsingR"</span>, <span class="st">"class"</span>, <span class="st">"caret"</span>, <span class="st">"UsingR"</span><span class="op">)</span></span>
 <span><span class="kw">library</span><span class="op">(</span><span class="va">rafalib</span><span class="op">)</span></span>
 <span><span class="kw">library</span><span class="op">(</span><span class="va">RColorBrewer</span><span class="op">)</span></span>
 <span><span class="kw">library</span><span class="op">(</span><span class="va">gplots</span><span class="op">)</span></span>
 <span><span class="kw">library</span><span class="op">(</span><span class="va">UsingR</span><span class="op">)</span></span>
 <span><span class="kw">library</span><span class="op">(</span><span class="va">class</span><span class="op">)</span></span>
-<span><span class="kw">library</span><span class="op">(</span><span class="va">caret</span><span class="op">)</span></span></code></pre>
+<span><span class="kw">library</span><span class="op">(</span><span class="va">caret</span><span class="op">)</span></span>
+<span><span class="kw">library</span><span class="op">(</span><span class="va">UsingR</span><span class="op">)</span></span></code></pre>
 <p>{: .r}</p>
 </li>
 <li>
