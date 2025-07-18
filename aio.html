@@ -815,7 +815,7 @@ D) 17 and 18</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p><code>d &lt;- dist(t(x))</code><br><code>hc &lt;- hclust(d)</code><br><code>mypar()</code><br><code>plot(hc)</code></p>
 <p>A hint to determine the disimilarity between two samples is to look
@@ -862,7 +862,7 @@ simulation, what is the standard error of this random variable?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -921,7 +921,7 @@ clusters. D) The clusters don’t depend on any of the column of
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -986,7 +986,7 @@ be clustering by <code>samplInfo$group</code>.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb32">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1057,7 +1057,7 @@ plot and do not let us find the differences between the two groups.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb34">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1200,65 +1200,22 @@ would go with the average height:</p>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">library</span><span class="op">(</span><span class="va">rafalib</span><span class="op">)</span></span>
+<span><span class="kw">library</span><span class="op">(</span><span class="va">UsingR</span><span class="op">)</span></span>
 <span><span class="fu">mypar</span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span></span>
-<span><span class="fu">data</span><span class="op">(</span><span class="va">father.son</span>, package<span class="op">=</span><span class="st">"UsingR"</span><span class="op">)</span></span></code></pre>
+<span><span class="fu">data</span><span class="op">(</span><span class="va">father.son</span>, package<span class="op">=</span><span class="st">"UsingR"</span><span class="op">)</span></span>
+<span><span class="va">x</span><span class="op">=</span><span class="fu">round</span><span class="op">(</span><span class="va">father.son</span><span class="op">$</span><span class="va">fheight</span><span class="op">)</span> <span class="co">## round to nearest inch</span></span>
+<span><span class="va">y</span><span class="op">=</span><span class="fu">round</span><span class="op">(</span><span class="va">father.son</span><span class="op">$</span><span class="va">sheight</span><span class="op">)</span></span>
+<span><span class="fu">hist</span><span class="op">(</span><span class="va">y</span>, breaks<span class="op">=</span><span class="fu">seq</span><span class="op">(</span><span class="fu">min</span><span class="op">(</span><span class="va">y</span><span class="op">)</span>, <span class="fu">max</span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">abline</span><span class="op">(</span>v<span class="op">=</span><span class="fu">mean</span><span class="op">(</span><span class="va">y</span><span class="op">)</span>, col<span class="op">=</span><span class="st">"red"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre>
 </div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in find.package(package, lib.loc, verbose = verbose): there is no package called 'UsingR'</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb3">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">x</span><span class="op">=</span><span class="fu">round</span><span class="op">(</span><span class="va">father.son</span><span class="op">$</span><span class="va">fheight</span><span class="op">)</span> <span class="co">## round to nearest inch</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error: object 'father.son' not found</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb5">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">y</span><span class="op">=</span><span class="fu">round</span><span class="op">(</span><span class="va">father.son</span><span class="op">$</span><span class="va">sheight</span><span class="op">)</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error: object 'father.son' not found</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb7">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">hist</span><span class="op">(</span><span class="va">y</span>, breaks<span class="op">=</span><span class="fu">seq</span><span class="op">(</span><span class="fu">min</span><span class="op">(</span><span class="va">y</span><span class="op">)</span>, <span class="fu">max</span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error: object 'y' not found</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb9">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">abline</span><span class="op">(</span>v<span class="op">=</span><span class="fu">mean</span><span class="op">(</span><span class="va">y</span><span class="op">)</span>, col<span class="op">=</span><span class="st">"red"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error: object 'y' not found</code></pre>
-</div>
-<figure><img src="./fig/03-conditional-probabilities-expectations-height_hist-1.png" alt="Histogram of son heights." class="figure mx-auto d-block"><div class="figcaption">Histogram of son heights.</div>
-</figure><p>In this case, we can also approximate the distribution of <span class="math inline">\(Y\)</span> as normal, which implies the mean
+<figure style="text-align: center"><img src="fig/conditional-probabilities-expectations-rendered-height_hist-1.png" alt="Histogram of son heights." class="figure mx-auto d-block"><figcaption>
+Histogram of son heights.
+</figcaption></figure><p>In this case, we can also approximate the distribution of <span class="math inline">\(Y\)</span> as normal, which implies the mean
 maximizes the probability density.</p>
 <p>Let’s imagine that we are given more information. We are told that
 the father of this randomly selected son has a height of 71 inches (1.25
 SDs taller than the average). What is our prediction now?</p>
-<div class="codewrapper sourceCode" id="cb11">
+<div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1267,45 +1224,21 @@ SDs taller than the average). What is our prediction now?</p>
 <span>     xlab<span class="op">=</span><span class="st">"Father's height in inches"</span>,</span>
 <span>     ylab<span class="op">=</span><span class="st">"Son's height in inches"</span>,</span>
 <span>     main<span class="op">=</span><span class="fu">paste</span><span class="op">(</span><span class="st">"correlation ="</span>,</span>
-<span>                <span class="fu">signif</span><span class="op">(</span><span class="fu">cor</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error: object 'x' not found</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb13">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">abline</span><span class="op">(</span>v<span class="op">=</span><span class="fu">c</span><span class="op">(</span><span class="op">-</span><span class="fl">0.35</span>, <span class="fl">0.35</span><span class="op">)</span> <span class="op">+</span> <span class="fl">71</span>,</span>
-<span>       col<span class="op">=</span><span class="st">"red"</span><span class="op">)</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in int_abline(a = a, b = b, h = h, v = v, untf = untf, ...): plot.new has not been called yet</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb15">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">hist</span><span class="op">(</span><span class="va">y</span><span class="op">[</span><span class="va">x</span><span class="op">==</span><span class="fl">71</span><span class="op">]</span>, </span>
+<span>                <span class="fu">signif</span><span class="op">(</span><span class="fu">cor</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">abline</span><span class="op">(</span>v<span class="op">=</span><span class="fu">c</span><span class="op">(</span><span class="op">-</span><span class="fl">0.35</span>, <span class="fl">0.35</span><span class="op">)</span> <span class="op">+</span> <span class="fl">71</span>,</span>
+<span>       col<span class="op">=</span><span class="st">"red"</span><span class="op">)</span></span>
+<span><span class="fu">hist</span><span class="op">(</span><span class="va">y</span><span class="op">[</span><span class="va">x</span><span class="op">==</span><span class="fl">71</span><span class="op">]</span>, </span>
 <span>     xlab<span class="op">=</span><span class="st">"Heights"</span>, </span>
 <span>     nc<span class="op">=</span><span class="fl">8</span>, </span>
 <span>     main<span class="op">=</span><span class="st">""</span>, </span>
 <span>     xlim<span class="op">=</span><span class="fu">range</span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error: object 'y' not found</code></pre>
-</div>
-<figure><img src="./fig/03-conditional-probabilities-expectations-conditional_distribution-1.png" alt="Son versus father height (left) with the red lines denoting the stratum defined by conditioning on fathers being 71 inches tall. Conditional distribution: son height distribution of stratum defined by 71 inch fathers." class="figure mx-auto d-block"><div class="figcaption">Son versus father height (left) with the red
-lines denoting the stratum defined by conditioning on fathers being 71
-inches tall. Conditional distribution: son height distribution of
-stratum defined by 71 inch fathers.</div>
-</figure><p>The best guess is still the expectation, but our strata has changed
+<figure style="text-align: center"><img src="fig/conditional-probabilities-expectations-rendered-conditional_distribution-1.png" alt="Son versus father height (left) with the red lines denoting the stratum defined by conditioning on fathers being 71 inches tall. Conditional distribution: son height distribution of stratum defined by 71 inch fathers." class="figure mx-auto d-block"><figcaption>
+Son versus father height (left) with the red lines denoting the stratum
+defined by conditioning on fathers being 71 inches tall. Conditional
+distribution: son height distribution of stratum defined by 71 inch
+fathers.
+</figcaption></figure><p>The best guess is still the expectation, but our strata has changed
 from all the data, to only the <span class="math inline">\(Y\)</span>
 with <span class="math inline">\(X=71\)</span>. So we can stratify and
 take the average, which is the conditional expectation. Our prediction
@@ -1320,7 +1253,7 @@ f(x) = \mu_Y + \rho \frac{\sigma_Y}{\sigma_X} (X-\mu_X)
 \]</span></p>
 <p>and if we estimate these five parameters from the sample, we get the
 regression line:</p>
-<div class="codewrapper sourceCode" id="cb17">
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1329,77 +1262,25 @@ regression line:</p>
 <span>     xlab<span class="op">=</span><span class="st">"Father's height in inches"</span>, </span>
 <span>     ylab<span class="op">=</span><span class="st">"Son's height in inches"</span>,</span>
 <span>     main<span class="op">=</span><span class="fu">paste</span><span class="op">(</span><span class="st">"correlation ="</span>,</span>
-<span>                <span class="fu">signif</span><span class="op">(</span><span class="fu">cor</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span><span class="op">)</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error: object 'x' not found</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb19">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">abline</span><span class="op">(</span>v<span class="op">=</span><span class="fu">c</span><span class="op">(</span><span class="op">-</span><span class="fl">0.35</span>, <span class="fl">0.35</span><span class="op">)</span> <span class="op">+</span> <span class="fl">71</span>,</span>
-<span>       col<span class="op">=</span><span class="st">"red"</span><span class="op">)</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in int_abline(a = a, b = b, h = h, v = v, untf = untf, ...): plot.new has not been called yet</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb21">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu">lm</span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x</span><span class="op">)</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in eval(predvars, data, env): object 'y' not found</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb23">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">abline</span><span class="op">(</span><span class="va">fit</span>, col<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error: object 'fit' not found</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb25">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">hist</span><span class="op">(</span><span class="va">y</span><span class="op">[</span><span class="va">x</span><span class="op">==</span><span class="fl">71</span><span class="op">]</span>,</span>
+<span>                <span class="fu">signif</span><span class="op">(</span><span class="fu">cor</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span><span class="op">)</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">abline</span><span class="op">(</span>v<span class="op">=</span><span class="fu">c</span><span class="op">(</span><span class="op">-</span><span class="fl">0.35</span>, <span class="fl">0.35</span><span class="op">)</span> <span class="op">+</span> <span class="fl">71</span>,</span>
+<span>       col<span class="op">=</span><span class="st">"red"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu">lm</span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x</span><span class="op">)</span></span>
+<span><span class="fu">abline</span><span class="op">(</span><span class="va">fit</span>, col<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">hist</span><span class="op">(</span><span class="va">y</span><span class="op">[</span><span class="va">x</span><span class="op">==</span><span class="fl">71</span><span class="op">]</span>,</span>
 <span>     xlab<span class="op">=</span><span class="st">"Heights"</span>,</span>
 <span>     nc<span class="op">=</span><span class="fl">8</span>,</span>
 <span>     main<span class="op">=</span><span class="st">""</span>,</span>
-<span>     xlim<span class="op">=</span><span class="fu">range</span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">)</span></span></code></pre>
+<span>     xlim<span class="op">=</span><span class="fu">range</span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">abline</span><span class="op">(</span>v <span class="op">=</span> <span class="va">fit</span><span class="op">$</span><span class="va">coef</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">+</span> <span class="va">fit</span><span class="op">$</span><span class="va">coef</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">*</span><span class="fl">71</span>, col<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></code></pre>
 </div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error: object 'y' not found</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb27">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">abline</span><span class="op">(</span>v <span class="op">=</span> <span class="va">fit</span><span class="op">$</span><span class="va">coef</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">+</span> <span class="va">fit</span><span class="op">$</span><span class="va">coef</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">*</span><span class="fl">71</span>, col<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error: object 'fit' not found</code></pre>
-</div>
-<figure><img src="./fig/03-conditional-probabilities-expectations-regression-1.png" alt="Son versus father height showing predicted heights based on regression line (left). Conditional distribution with vertical line representing regression prediction." class="figure mx-auto d-block"><div class="figcaption">Son versus father height showing predicted
-heights based on regression line (left). Conditional distribution with
-vertical line representing regression prediction.</div>
-</figure><p>In this particular case, the regression line provides an optimal
+<figure style="text-align: center"><img src="fig/conditional-probabilities-expectations-rendered-regression-1.png" alt="Son versus father height showing predicted heights based on regression line (left). Conditional distribution with vertical line representing regression prediction." class="figure mx-auto d-block"><figcaption>
+Son versus father height showing predicted heights based on regression
+line (left). Conditional distribution with vertical line representing
+regression prediction.
+</figcaption></figure><p>In this particular case, the regression line provides an optimal
 prediction function for <span class="math inline">\(Y\)</span>. But this
 is not generally true because, in the typical machine learning problems,
 the optimal <span class="math inline">\(f(x)\)</span> is rarely a simple
@@ -1414,7 +1295,7 @@ line.</p>
 <p>Throughout these exercises it will be useful to remember that when
 our data are 0s and 1s, probabilities and expectations are the same
 thing. We can do the math, but here is some R code:</p>
-<div class="codewrapper sourceCode" id="cb29">
+<div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1424,7 +1305,7 @@ thing. We can do the math, but here is some R code:</p>
 </div>
 <p>Generate some random data to imitate heights for men (0) and women
 (1):</p>
-<div class="codewrapper sourceCode" id="cb30">
+<div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1456,7 +1337,7 @@ thing. We can do the math, but here is some R code:</p>
 </button>
 <div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb31">
+<div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1490,7 +1371,7 @@ based on height and want your probability of success to be larger than
 </button>
 <div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb32">
+<div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2815,7 +2696,7 @@ of <code>y</code>. What is the 2nd entry in the fold 3?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb34">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2856,7 +2737,7 @@ indexing.</strong></p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb35">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2905,7 +2786,7 @@ number of errors / total predictions)</strong></p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb36">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2965,7 +2846,7 @@ rate?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb38">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3031,7 +2912,7 @@ much lower estimated error rates.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb39">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3094,7 +2975,7 @@ effect chapter.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Show me the solution </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb40">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
