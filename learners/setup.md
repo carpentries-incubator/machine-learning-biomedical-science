@@ -23,7 +23,6 @@ Alternatively, you can use the R console to run the following commands for step
    dir.create("./scripts")
    dir.create("./results")
    ~~~
-   {: .r}
    
 ## Data Sets
 
@@ -39,16 +38,14 @@ individuals.
 1. Install R packages and load the libraries.
 
     ~~~
-   install.packages("rafalib", "RColorBrewer", "gplots", "UsingR", "class", "caret", "UsingR")
+   install.packages("rafalib", "RColorBrewer", "gplots", "UsingR", "class", "caret")
    library(rafalib)
    library(RColorBrewer)
    library(gplots)
    library(UsingR)
    library(class)
    library(caret)
-   library(UsingR)
    ~~~
-   {: .r}
 
 2. Install and load packages from Bioconductor.
 
@@ -63,4 +60,3 @@ individuals.
    library(hgu95acdf)
    data(SpikeIn95)
    ~~~
-   {: .r}
