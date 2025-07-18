@@ -1,16 +1,16 @@
 ---
-title: "Cross-validation"
+title: Cross-validation
 teaching: 30
 exercises: 30
 ---
 
 :::::: questions
-- "How can the best configuration of parameters be selected for a machine learning model using only the data available?"
+- How can the best configuration of parameters be selected for a machine learning model using only the data available?
 ::::::
 
 :::::: objectives
-- "Create a set of fold indices for cross-validation"
-- "Select the best configuration for a machine learning model using cross-validation"
+- Create a set of fold indices for cross-validation.
+- Select the best configuration for a machine learning model using cross-validation.
 ::::::
 
 
@@ -38,9 +38,8 @@ seen how this leads to over-fitting.
 
 Let's start by loading the tissue gene expression dataset:
 
-```{r, eval=FALSE}
-library(tissuesGeneExpression)
-data(tissuesGeneExpression)
+```{r}
+load("data/tissuesGeneExpression.rda")
 ```
 
 For illustration purposes, we will drop one of the tissues which doesn't have 
@@ -481,5 +480,5 @@ mean(error_rate_avg) # mean error rate
 :::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::: keypoints
- - "The mean validation error obtained from cross-validation is a better approximation of the test error (real world data) than the training error itself."
+ - The mean validation error obtained from cross-validation is a better approximation of the test error (real world data) than the training error itself.
 ::::::
