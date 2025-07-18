@@ -38,7 +38,8 @@ individuals.
 1. Install R packages and load the libraries.
 
     ~~~
-   install.packages("rafalib", "RColorBrewer", "gplots", "UsingR", "class", "caret")
+   install.packages("rafalib", "RColorBrewer", "gplots", 
+                    "UsingR", "class", "caret")
    library(rafalib)
    library(RColorBrewer)
    library(gplots)
@@ -53,7 +54,7 @@ individuals.
    if (!require("BiocManager", quietly = TRUE))
         install.packages("BiocManager")
    
-   BiocManager::install(c("genefilter", "Biobase", "SpikeIn", "hgu95acdf")
+   BiocManager::install(c("genefilter", "Biobase", "SpikeIn", "hgu95acdf"))
    library(genefilter)
    library(Biobase)
    library(SpikeIn)
