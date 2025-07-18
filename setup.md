@@ -30,13 +30,6 @@ Alternatively, you can use the R console to run the following commands for step
 Download the tissue gene expression 
 [data directly from Github](https://github.com/genomicsclass/tissuesGeneExpression/blob/master/data/tissuesGeneExpression.rda) 
 and place them in your new `data` directory.
-
-Load the library and data.
-   ~~~
-   library(tissuesGeneExpression) 
-   data(tissuesGeneExpression)
-   ~~~
-   {: .r}
    
 The data represent RNA expression levels for eight tissues, each with several
 individuals.
@@ -46,13 +39,14 @@ individuals.
 1. Install R packages and load the libraries.
 
     ~~~
-   install.packages("rafalib", "RColorBrewer", "gplots", "UsingR", "class", "caret")
+   install.packages("rafalib", "RColorBrewer", "gplots", "UsingR", "class", "caret", "UsingR")
    library(rafalib)
    library(RColorBrewer)
    library(gplots)
    library(UsingR)
    library(class)
    library(caret)
+   library(UsingR)
    ~~~
    {: .r}
 

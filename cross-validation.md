@@ -1,16 +1,16 @@
 ---
-title: "Cross-validation"
+title: Cross-validation
 teaching: 30
 exercises: 30
 ---
 
 :::::: questions
-- "How can the best configuration of parameters be selected for a machine learning model using only the data available?"
+- How can the best configuration of parameters be selected for a machine learning model using only the data available?
 ::::::
 
 :::::: objectives
-- "Create a set of fold indices for cross-validation"
-- "Select the best configuration for a machine learning model using cross-validation"
+- Create a set of fold indices for cross-validation.
+- Select the best configuration for a machine learning model using cross-validation.
 ::::::
 
 
@@ -39,8 +39,7 @@ Let's start by loading the tissue gene expression dataset:
 
 
 ``` r
-library(tissuesGeneExpression)
-data(tissuesGeneExpression)
+load("data/tissuesGeneExpression.rda")
 ```
 
 For illustration purposes, we will drop one of the tissues which doesn't have 
@@ -51,32 +50,18 @@ many samples:
 table(tissue)
 ```
 
-``` error
-Error: object 'tissue' not found
+``` output
+tissue
+ cerebellum       colon endometrium hippocampus      kidney       liver 
+         38          34          15          31          39          26 
+   placenta 
+          6 
 ```
 
 ``` r
 ind <- which(tissue != "placenta")
-```
-
-``` error
-Error: object 'tissue' not found
-```
-
-``` r
 y <- tissue[ind]
-```
-
-``` error
-Error: object 'tissue' not found
-```
-
-``` r
 X <- t( e[,ind] )
-```
-
-``` error
-Error: object 'e' not found
 ```
 
 This tissue will not form part of our example.
@@ -89,18 +74,11 @@ the same data for training and for testing?
 ``` r
 library(class)
 pred <- knn(train =  X, test = X, cl=y, k=5)
-```
-
-``` error
-Error: object 'X' not found
-```
-
-``` r
 mean(y != pred)
 ```
 
-``` error
-Error: object 'y' not found
+``` output
+[1] 0
 ```
 
 We have no errors in prediction in the training set with $k=5$. What if we use 
@@ -109,18 +87,11 @@ $k=1$?
 
 ``` r
 pred <- knn(train=X, test=X, cl=y, k=1)
-```
-
-``` error
-Error: object 'X' not found
-```
-
-``` r
 mean(y != pred)
 ```
 
-``` error
-Error: object 'y' not found
+``` output
+[1] 0
 ```
 
 Trying to classify the same observations as we use to *train* the model can be 
@@ -155,18 +126,12 @@ in classifying a new sample. Here we will create 10 folds:
 library(caret)
 set.seed(1)
 idx <- createFolds(y, k=10)
-```
-
-``` error
-Error: object 'y' not found
-```
-
-``` r
 sapply(idx, length)
 ```
 
-``` error
-Error: object 'idx' not found
+``` output
+Fold01 Fold02 Fold03 Fold04 Fold05 Fold06 Fold07 Fold08 Fold09 Fold10 
+    19     19     18     18     19     18     20     16     16     20 
 ```
 
 The folds are returned as a list of numeric indices. The first fold of data is therefore:
@@ -176,16 +141,25 @@ The folds are returned as a list of numeric indices. The first fold of data is t
 y[idx[[1]]] ##the labels
 ```
 
-``` error
-Error: object 'y' not found
+``` output
+ [1] "kidney"      "hippocampus" "hippocampus" "hippocampus" "cerebellum" 
+ [6] "cerebellum"  "cerebellum"  "kidney"      "kidney"      "kidney"     
+[11] "colon"       "colon"       "colon"       "liver"       "endometrium"
+[16] "endometrium" "liver"       "liver"       "cerebellum" 
 ```
 
 ``` r
 head( X[idx[[1]], 1:3] ) ##the genes (only showing the first 3 genes...)
 ```
 
-``` error
-Error: object 'X' not found
+``` output
+                1007_s_at  1053_at   117_at
+GSM12105.CEL.gz  9.913031 6.337478 7.983850
+GSM21209.cel.gz 11.667431 5.785190 7.666343
+GSM21215.cel.gz 10.361340 5.663634 7.328729
+GSM21218.cel.gz 10.757734 5.984170 8.525524
+GSM87066.cel.gz  9.746007 5.886079 7.459517
+GSM87085.cel.gz  9.864295 5.753874 7.712646
 ```
 
 We can see that, in fact, the tissues are fairly equally represented across the 10 folds:
@@ -195,8 +169,21 @@ We can see that, in fact, the tissues are fairly equally represented across the 
 sapply(idx, function(i) table(y[i]))
 ```
 
-``` error
-Error: object 'idx' not found
+``` output
+            Fold01 Fold02 Fold03 Fold04 Fold05 Fold06 Fold07 Fold08 Fold09
+cerebellum       4      4      4      4      4      3      4      3      4
+colon            3      4      4      3      3      3      4      3      3
+endometrium      2      1      1      1      2      2      2      1      1
+hippocampus      3      3      3      3      3      3      3      3      3
+kidney           4      4      4      4      4      4      4      4      3
+liver            3      3      2      3      3      3      3      2      2
+            Fold10
+cerebellum       4
+colon            4
+endometrium      2
+hippocampus      4
+kidney           4
+liver            2
 ```
 
 Because tissues have very different gene expression profiles, predicting tissue with all genes will be very easy. For illustration purposes we will try to predict tissue type with just two dimensional data. We will reduce the dimension of our data using `cmdscale`:
@@ -220,27 +207,14 @@ The following object is masked from 'package:lattice':
 ``` r
 mypar()
 Xsmall <- cmdscale(dist(X))
-```
-
-``` error
-Error: object 'X' not found
-```
-
-``` r
 plot(Xsmall,col=as.fumeric(y))
-```
-
-``` error
-Error: object 'Xsmall' not found
-```
-
-``` r
 legend("topleft",levels(factor(y)),fill=seq_along(levels(factor(y))))
 ```
 
-``` error
-Error: object 'y' not found
-```
+<div class="figure" style="text-align: center">
+<img src="fig/cross-validation-rendered-mds-1.png" alt="First two PCs of the tissue gene expression data with color representing tissue. We use these two PCs as our two predictors throughout."  />
+<p class="caption">First two PCs of the tissue gene expression data with color representing tissue. We use these two PCs as our two predictors throughout.</p>
+</div>
 
 ![First two PCs of the tissue gene expression data with color representing tissue. We use these two PCs as our two predictors throughout.](./fig/06-cross-validation-mds-1.png)
 
@@ -254,26 +228,26 @@ use 5 observations to classify in our k-nearest neighbor algorithm:
 
 ``` r
 pred <- knn(train=Xsmall[ -idx[[1]] , ], test=Xsmall[ idx[[1]], ], cl=y[ -idx[[1]] ], k=5)
-```
-
-``` error
-Error: object 'Xsmall' not found
-```
-
-``` r
 table(true=y[ idx[[1]] ], pred)
 ```
 
-``` error
-Error: object 'y' not found
+``` output
+             pred
+true          cerebellum colon endometrium hippocampus kidney liver
+  cerebellum           4     0           0           0      0     0
+  colon                0     2           0           0      1     0
+  endometrium          0     0           2           0      0     0
+  hippocampus          2     0           0           1      0     0
+  kidney               0     0           0           0      4     0
+  liver                0     0           0           0      0     3
 ```
 
 ``` r
 mean(y[ idx[[1]] ] != pred)
 ```
 
-``` error
-Error: object 'y' not found
+``` output
+[1] 0.1578947
 ```
 
 Now we have some misclassifications. How well do we do for the rest of the 
@@ -287,8 +261,17 @@ for (i in 1:10) {
 }
 ```
 
-``` error
-Error: object 'Xsmall' not found
+``` output
+[1] "1) error rate: 0.158"
+[1] "2) error rate: 0.158"
+[1] "3) error rate: 0.278"
+[1] "4) error rate: 0.167"
+[1] "5) error rate: 0.158"
+[1] "6) error rate: 0.167"
+[1] "7) error rate: 0.25"
+[1] "8) error rate: 0.188"
+[1] "9) error rate: 0.062"
+[1] "10) error rate: 0.1"
 ```
 
 So we can see there is some variation for each fold, with error rates hovering 
@@ -320,10 +303,6 @@ res <- sapply(ks, function(k) {
 })
 ```
 
-``` error
-Error in FUN(X[[i]], ...): object 'idx' not found
-```
-
 Now for each value of k, we have an associated test set error rate from the cross-validation procedure.
 
 
@@ -331,8 +310,9 @@ Now for each value of k, we have an associated test set error rate from the cros
 res
 ```
 
-``` error
-Error: object 'res' not found
+``` output
+ [1] 0.1882164 0.1692032 0.1694664 0.1639108 0.1511184 0.1586184 0.1589108
+ [8] 0.1865058 0.1880482 0.1714108 0.1759795 0.1744664
 ```
 
 We can then plot the error rate for each value of k, which helps us to see in what region there might be a minimal error rate:
@@ -342,9 +322,10 @@ We can then plot the error rate for each value of k, which helps us to see in wh
 plot(ks, res, type="o", ylab="misclassification error")
 ```
 
-``` error
-Error: object 'res' not found
-```
+<div class="figure" style="text-align: center">
+<img src="fig/cross-validation-rendered-misclassification_error-1.png" alt="Misclassification error versus number of neighbors."  />
+<p class="caption">Misclassification error versus number of neighbors.</p>
+</div>
 
 ![Misclassification error versus number of neighbors.](./fig/06-cross-validation-misclassification_error-1.png)
 
@@ -360,13 +341,6 @@ dimensions instead of 2, which results in perfect prediction:
 
 ``` r
 Xsmall <- cmdscale(dist(X),k=5)
-```
-
-``` error
-Error: object 'X' not found
-```
-
-``` r
 set.seed(1)
 ks <- 1:12
 res <- sapply(ks, function(k) {
@@ -378,19 +352,13 @@ res <- sapply(ks, function(k) {
   })
   mean(res.k)
 })
-```
-
-``` error
-Error in FUN(X[[i]], ...): object 'idx' not found
-```
-
-``` r
 plot(ks, res, type="o",ylim=c(0,0.20),ylab="misclassification error")
 ```
 
-``` error
-Error: object 'res' not found
-```
+<div class="figure" style="text-align: center">
+<img src="fig/cross-validation-rendered-misclassification_error2-1.png" alt="Misclassification error versus number of neighbors when we use 5 dimensions instead of 2."  />
+<p class="caption">Misclassification error versus number of neighbors when we use 5 dimensions instead of 2.</p>
+</div>
 
 ![Misclassification error versus number of neighbors when we use 5 dimensions instead of 2.](./fig/06-cross-validation-misclassification_error2-1.png)
 
@@ -660,5 +628,5 @@ mean(error_rate_avg) # mean error rate
 :::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::: keypoints
- - "The mean validation error obtained from cross-validation is a better approximation of the test error (real world data) than the training error itself."
+ - The mean validation error obtained from cross-validation is a better approximation of the test error (real world data) than the training error itself.
 ::::::
