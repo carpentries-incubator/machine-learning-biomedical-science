@@ -64,8 +64,6 @@ plot(hc,labels=tissue,cex=0.5)
 <p class="caption">Dendrogram showing hierarchical clustering of tissue gene expression data.</p>
 </div>
 
-![Dendrogram showing hierarchical clustering of tissue gene expression data.](./fig/02-clustering-dendrogram-1.png)
-
 Does this technique "discover" the clusters defined by the different tissues? In this plot, it is not easy to see the different tissues so we add colors by using the `myplclust` function from the `rafalib` package. 
  
 
@@ -77,8 +75,6 @@ myplclust(hc, labels=tissue, lab.col=as.fumeric(tissue), cex=0.5)
 <img src="fig/clustering-rendered-color_dendrogram-1.png" alt="Dendrogram showing hierarchical clustering of tissue gene expression data with colors denoting tissues."  />
 <p class="caption">Dendrogram showing hierarchical clustering of tissue gene expression data with colors denoting tissues.</p>
 </div>
-
-![Dendrogram showing hierarchical clustering of tissue gene expression data with colors denoting tissues.](./fig/02-clustering-color_dendrogram-1.png)
 
 Visually, it does seem as if the clustering technique has discovered the tissues. However,  hierarchical clustering does not define specific clusters, but rather defines the dendrogram above. From the dendrogram we can decipher the distance between any two groups by looking at the height at which the two groups split into two. To define clusters, we need to "cut the tree" at some distance and group all samples that are within that distance into groups below. To visualize this, we draw a horizontal line at the height we wish to cut and this defines that line. We use 120 as an example:
 
@@ -93,7 +89,6 @@ abline(h=120)
 <p class="caption">Dendrogram showing hierarchical clustering of tissue gene expression data with colors denoting tissues. Horizontal line defines actual clusters.</p>
 </div>
 
-![Dendrogram showing hierarchical clustering of tissue gene expression data with colors denoting tissues. Horizontal line defines actual clusters.](./fig/02-clustering-color_dendrogram2-1.png)
 If we use the line above to cut the tree into clusters, we can examine how the clusters overlap with the actual tissues:
 
 
@@ -163,8 +158,6 @@ plot(e[1,], e[2,], col=km$cluster, pch=16)
 <p class="caption">Plot of gene expression for first two genes (order of appearance in data) with color representing tissue (left) and clusters found with kmeans (right).</p>
 </div>
 
-![Plot of gene expression for first two genes (order of appearance in data) with color representing tissue (left) and clusters found with kmeans (right).](./fig/02-clustering-kmeans-1.png)
-
 In the first plot, color represents the actual tissues, while in the second, color represents the clusters that were defined by `kmeans`. We can see from tabulating the results that this particular clustering exercise did not perform well:
 
 
@@ -200,8 +193,6 @@ plot(mds[,1], mds[,2], col=km$cluster, pch=16)
 <img src="fig/clustering-rendered-kmeans_mds-1.png" alt="Plot of gene expression for first two PCs with color representing tissues (left) and clusters found using all genes (right)."  />
 <p class="caption">Plot of gene expression for first two PCs with color representing tissues (left) and clusters found using all genes (right).</p>
 </div>
-
-![Plot of gene expression for first two PCs with color representing tissues (left) and clusters found using all genes (right).](./fig/02-clustering-kmeans_mds-1.png)
 
 By tabulating the results, we see that we obtain a similar answer to that obtained with hierarchical clustering.
 
@@ -271,8 +262,6 @@ heatmap.2(e[idx,], labCol=tissue,
 <img src="fig/clustering-rendered-heatmap.2-1.png" alt="Heatmap created using the 40 most variable genes and the function heatmap.2."  />
 <p class="caption">Heatmap created using the 40 most variable genes and the function heatmap.2.</p>
 </div>
-
-![Heatmap created using the 40 most variable genes and the function heatmap.2.](./fig/02-clustering-heatmap.2-1.png)
 
 We did not use tissue information to create this heatmap, and we can quickly see, with just 40 genes, good separation across tissues.
 
