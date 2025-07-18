@@ -21,8 +21,7 @@ We will demonstrate the concepts and code needed to perform clustering analysis 
 
 
 ``` r
-library(tissuesGeneExpression)
-data(tissuesGeneExpression)
+load("data/tissuesGeneExpression.rda")
 ```
 
 To illustrate the main application of clustering in the life sciences, let's pretend that we don't know these are different tissues and are interested in clustering. The first step is to compute the distance between each sample:
@@ -30,10 +29,6 @@ To illustrate the main application of clustering in the life sciences, let's pre
 
 ``` r
 d <- dist( t(e) )
-```
-
-``` error
-Error: object 'e' not found
 ```
 
 #### Hierarchical clustering
@@ -47,27 +42,27 @@ We can perform hierarchical clustering based on the distances defined above usin
 library(rafalib)
 mypar()
 hc <- hclust(d)
-```
-
-``` error
-Error: object 'd' not found
-```
-
-``` r
 hc
 ```
 
-``` error
-Error: object 'hc' not found
+``` output
+
+Call:
+hclust(d = d)
+
+Cluster method   : complete 
+Distance         : euclidean 
+Number of objects: 189 
 ```
 
 ``` r
 plot(hc,labels=tissue,cex=0.5)
 ```
 
-``` error
-Error: object 'hc' not found
-```
+<div class="figure" style="text-align: center">
+<img src="fig/clustering-rendered-dendrogram-1.png" alt="Dendrogram showing hierarchical clustering of tissue gene expression data."  />
+<p class="caption">Dendrogram showing hierarchical clustering of tissue gene expression data.</p>
+</div>
 
 ![Dendrogram showing hierarchical clustering of tissue gene expression data.](./fig/02-clustering-dendrogram-1.png)
 
@@ -78,9 +73,10 @@ Does this technique "discover" the clusters defined by the different tissues? In
 myplclust(hc, labels=tissue, lab.col=as.fumeric(tissue), cex=0.5)
 ```
 
-``` error
-Error: object 'hc' not found
-```
+<div class="figure" style="text-align: center">
+<img src="fig/clustering-rendered-color_dendrogram-1.png" alt="Dendrogram showing hierarchical clustering of tissue gene expression data with colors denoting tissues."  />
+<p class="caption">Dendrogram showing hierarchical clustering of tissue gene expression data with colors denoting tissues.</p>
+</div>
 
 ![Dendrogram showing hierarchical clustering of tissue gene expression data with colors denoting tissues.](./fig/02-clustering-color_dendrogram-1.png)
 
@@ -89,19 +85,13 @@ Visually, it does seem as if the clustering technique has discovered the tissues
 
 ``` r
 myplclust(hc, labels=tissue, lab.col=as.fumeric(tissue),cex=0.5)
-```
-
-``` error
-Error: object 'hc' not found
-```
-
-``` r
 abline(h=120)
 ```
 
-``` error
-Error in int_abline(a = a, b = b, h = h, v = v, untf = untf, ...): plot.new has not been called yet
-```
+<div class="figure" style="text-align: center">
+<img src="fig/clustering-rendered-color_dendrogram2-1.png" alt="Dendrogram showing hierarchical clustering of tissue gene expression data with colors denoting tissues. Horizontal line defines actual clusters."  />
+<p class="caption">Dendrogram showing hierarchical clustering of tissue gene expression data with colors denoting tissues. Horizontal line defines actual clusters.</p>
+</div>
 
 ![Dendrogram showing hierarchical clustering of tissue gene expression data with colors denoting tissues. Horizontal line defines actual clusters.](./fig/02-clustering-color_dendrogram2-1.png)
 If we use the line above to cut the tree into clusters, we can examine how the clusters overlap with the actual tissues:
@@ -109,18 +99,19 @@ If we use the line above to cut the tree into clusters, we can examine how the c
 
 ``` r
 hclusters <- cutree(hc, h=120)
-```
-
-``` error
-Error: object 'hc' not found
-```
-
-``` r
 table(true=tissue, cluster=hclusters)
 ```
 
-``` error
-Error: object 'tissue' not found
+``` output
+             cluster
+true           1  2  3  4  5  6  7  8  9 10 11 12 13 14
+  cerebellum   0  0  0  0 31  0  0  0  2  0  0  5  0  0
+  colon        0  0  0  0  0  0 34  0  0  0  0  0  0  0
+  endometrium  0  0  0  0  0  0  0  0  0  0 15  0  0  0
+  hippocampus  0  0 12 19  0  0  0  0  0  0  0  0  0  0
+  kidney       9 18  0  0  0 10  0  0  2  0  0  0  0  0
+  liver        0  0  0  0  0  0  0 24  0  2  0  0  0  0
+  placenta     0  0  0  0  0  0  0  0  0  0  0  0  2  4
 ```
 
 We can also ask `cutree` to give us back a given number of clusters. The function then automatically finds the height that results in the requested number of clusters:
@@ -128,18 +119,19 @@ We can also ask `cutree` to give us back a given number of clusters. The functio
 
 ``` r
 hclusters <- cutree(hc, k=8)
-```
-
-``` error
-Error: object 'hc' not found
-```
-
-``` r
 table(true=tissue, cluster=hclusters)
 ```
 
-``` error
-Error: object 'tissue' not found
+``` output
+             cluster
+true           1  2  3  4  5  6  7  8
+  cerebellum   0  0 31  0  0  2  5  0
+  colon        0  0  0 34  0  0  0  0
+  endometrium 15  0  0  0  0  0  0  0
+  hippocampus  0 12 19  0  0  0  0  0
+  kidney      37  0  0  0  0  2  0  0
+  liver        0  0  0  0 24  2  0  0
+  placenta     0  0  0  0  0  0  0  6
 ```
 
 In both cases we do see that, with some exceptions, each tissue is uniquely represented by one of the clusters. In some instances, the one tissue is spread across two tissues, which is due to selecting too many clusters. Selecting the number of clusters is generally a challenging step in practice and an active area of research.
@@ -152,36 +144,24 @@ We can also cluster with the `kmeans` function to perform k-means clustering. As
 ``` r
 set.seed(1)
 km <- kmeans(t(e[1:2,]), centers=7)
-```
-
-``` error
-Error: object 'e' not found
-```
-
-``` r
 names(km)
 ```
 
-``` error
-Error: object 'km' not found
+``` output
+[1] "cluster"      "centers"      "totss"        "withinss"     "tot.withinss"
+[6] "betweenss"    "size"         "iter"         "ifault"      
 ```
 
 ``` r
 mypar(1,2)
 plot(e[1,], e[2,], col=as.fumeric(tissue), pch=16)
-```
-
-``` error
-Error: object 'e' not found
-```
-
-``` r
 plot(e[1,], e[2,], col=km$cluster, pch=16)
 ```
 
-``` error
-Error: object 'e' not found
-```
+<div class="figure" style="text-align: center">
+<img src="fig/clustering-rendered-kmeans-1.png" alt="Plot of gene expression for first two genes (order of appearance in data) with color representing tissue (left) and clusters found with kmeans (right)."  />
+<p class="caption">Plot of gene expression for first two genes (order of appearance in data) with color representing tissue (left) and clusters found with kmeans (right).</p>
+</div>
 
 ![Plot of gene expression for first two genes (order of appearance in data) with color representing tissue (left) and clusters found with kmeans (right).](./fig/02-clustering-kmeans-1.png)
 
@@ -192,8 +172,16 @@ In the first plot, color represents the actual tissues, while in the second, col
 table(true=tissue,cluster=km$cluster)
 ```
 
-``` error
-Error: object 'tissue' not found
+``` output
+             cluster
+true           1  2  3  4  5  6  7
+  cerebellum   1  0  0 13  6  4 14
+  colon        3  0 22  0  6  3  0
+  endometrium  3  0  0  6  0  2  4
+  hippocampus  0  0  0  0 16 15  0
+  kidney      10  0  2  1  0  9 17
+  liver        0 18  0  7  0  0  1
+  placenta     4  0  0  1  0  0  1
 ```
 
 This is very likely due to the fact that the first two genes are not informative regarding tissue type. We can see this in the first plot above. If we instead perform k-means clustering using all of the genes, we obtain a much improved result. To visualize this, we can use an MDS plot:
@@ -201,36 +189,17 @@ This is very likely due to the fact that the first two genes are not informative
 
 ``` r
 km <- kmeans(t(e), centers=7)
-```
-
-``` error
-Error: object 'e' not found
-```
-
-``` r
 mds <- cmdscale(d)
-```
 
-``` error
-Error: object 'd' not found
-```
-
-``` r
 mypar(1,2)
 plot(mds[,1], mds[,2]) 
-```
-
-``` error
-Error: object 'mds' not found
-```
-
-``` r
 plot(mds[,1], mds[,2], col=km$cluster, pch=16)
 ```
 
-``` error
-Error: object 'mds' not found
-```
+<div class="figure" style="text-align: center">
+<img src="fig/clustering-rendered-kmeans_mds-1.png" alt="Plot of gene expression for first two PCs with color representing tissues (left) and clusters found using all genes (right)."  />
+<p class="caption">Plot of gene expression for first two PCs with color representing tissues (left) and clusters found using all genes (right).</p>
+</div>
 
 ![Plot of gene expression for first two PCs with color representing tissues (left) and clusters found using all genes (right).](./fig/02-clustering-kmeans_mds-1.png)
 
@@ -241,8 +210,16 @@ By tabulating the results, we see that we obtain a similar answer to that obtain
 table(true=tissue,cluster=km$cluster)
 ```
 
-``` error
-Error: object 'tissue' not found
+``` output
+             cluster
+true           1  2  3  4  5  6  7
+  cerebellum   0  2  0  5  0  0 31
+  colon        0  0 34  0  0  0  0
+  endometrium  0  0  0  0  0 15  0
+  hippocampus  0  0  0 31  0  0  0
+  kidney       0  2  0  0 19 18  0
+  liver       24  2  0  0  0  0  0
+  placenta     0  0  6  0  0  0  0
 ```
 
 #### Heatmaps
@@ -261,18 +238,7 @@ Now, pick the genes with the top variance over all samples:
 ``` r
 library(genefilter)
 rv <- rowVars(e)
-```
-
-``` error
-Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'rowSums': object 'e' not found
-```
-
-``` r
 idx <- order(-rv)[1:40]
-```
-
-``` error
-Error: object 'rv' not found
 ```
 
 While a `heatmap` function is included in R, we recommend the `heatmap.2` function from the `gplots` package on CRAN because it is a bit more customized. For example, it stretches to fill the window. Here we add colors to indicate the tissue on the top:
@@ -281,18 +247,17 @@ While a `heatmap` function is included in R, we recommend the `heatmap.2` functi
 ``` r
 library(gplots) ##Available from CRAN
 cols <- palette(brewer.pal(8, "Dark2"))[as.fumeric(tissue)]
-```
-
-``` error
-Error: object 'tissue' not found
-```
-
-``` r
 head(cbind(colnames(e),cols))
 ```
 
-``` error
-Error: object 'e' not found
+``` output
+                       cols     
+[1,] "GSM11805.CEL.gz" "#1B9E77"
+[2,] "GSM11814.CEL.gz" "#1B9E77"
+[3,] "GSM11823.CEL.gz" "#1B9E77"
+[4,] "GSM11830.CEL.gz" "#1B9E77"
+[5,] "GSM12067.CEL.gz" "#1B9E77"
+[6,] "GSM12075.CEL.gz" "#1B9E77"
 ```
 
 ``` r
@@ -302,9 +267,10 @@ heatmap.2(e[idx,], labCol=tissue,
           col=hmcol)
 ```
 
-``` error
-Error: object 'e' not found
-```
+<div class="figure" style="text-align: center">
+<img src="fig/clustering-rendered-heatmap.2-1.png" alt="Heatmap created using the 40 most variable genes and the function heatmap.2."  />
+<p class="caption">Heatmap created using the 40 most variable genes and the function heatmap.2.</p>
+</div>
 
 ![Heatmap created using the 40 most variable genes and the function heatmap.2.](./fig/02-clustering-heatmap.2-1.png)
 
