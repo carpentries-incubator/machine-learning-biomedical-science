@@ -311,14 +311,15 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><h1 class="schedule-heading">Summary and Schedule</h1>
       
-
-<p>This is a new lesson built with <a href="https://carpentries.github.io/sandpaper-docs" class="external-link">The Carpentries
-Workbench</a>.</p>
-<!--
+<p>This lesson presents basic machine learning concepts featured in <a href="https://leanpub.com/dataanalysisforthelifesciences" class="external-link"><em>Data
+Analysis for the Life Sciences</em></a> by Rafael A. Irizarry and
+Michael I. Love. The lesson is adapted from software for <a href="https://github.com/genomicsclass/labs/tree/master/ml" class="external-link">Chapter 9:
+Practical Machine Learning</a>, which is published under <a href="https://github.com/genomicsclass/labs?tab=MIT-1-ov-file" class="external-link">this MIT
+license</a>. Adaptation was funded by NIH grant 1R25GM141520 awarded to
+Dr. Gary Churchill at The Jackson Laboratory. <!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
- -->
-
+ --></p>
 
       <section id="schedule"><table class="table table schedule table-striped" role="presentation"><tbody><tr><td></td><td><a href="#setup">Setup Instructions</a></td><td> Download files required for the lesson</td>
           </tr><tr><td>
@@ -416,7 +417,6 @@ for step 3 only. You still need to create a project with step 2.</p>
 <pre><code><span><span class="fu">dir.create</span><span class="op">(</span><span class="st">"./data"</span><span class="op">)</span></span>
 <span><span class="fu">dir.create</span><span class="op">(</span><span class="st">"./scripts"</span><span class="op">)</span></span>
 <span><span class="fu">dir.create</span><span class="op">(</span><span class="st">"./results"</span><span class="op">)</span></span></code></pre>
-<p>{: .r}</p>
 </li>
 </ol></section><section><h2 class="section-heading" id="data-sets">Data Sets<a class="anchor" aria-label="anchor" href="#data-sets"></a></h2>
 <hr class="half-width"><p>Download the tissue gene expression <a href="https://github.com/genomicsclass/tissuesGeneExpression/blob/master/data/tissuesGeneExpression.rda" class="external-link">data
@@ -427,15 +427,13 @@ several individuals.</p>
 </section><section><h2 class="section-heading" id="software-setup">Software Setup<a class="anchor" aria-label="anchor" href="#software-setup"></a></h2>
 <hr class="half-width"><ol style="list-style-type: decimal"><li>
 <p>Install R packages and load the libraries.</p>
-<pre><code><span><span class="fu">install.packages</span><span class="op">(</span><span class="st">"rafalib"</span>, <span class="st">"RColorBrewer"</span>, <span class="st">"gplots"</span>, <span class="st">"UsingR"</span>, <span class="st">"class"</span>, <span class="st">"caret"</span>, <span class="st">"UsingR"</span><span class="op">)</span></span>
+<pre><code><span><span class="fu">install.packages</span><span class="op">(</span><span class="st">"rafalib"</span>, <span class="st">"RColorBrewer"</span>, <span class="st">"gplots"</span>, <span class="st">"UsingR"</span>, <span class="st">"class"</span>, <span class="st">"caret"</span><span class="op">)</span></span>
 <span><span class="kw">library</span><span class="op">(</span><span class="va">rafalib</span><span class="op">)</span></span>
 <span><span class="kw">library</span><span class="op">(</span><span class="va">RColorBrewer</span><span class="op">)</span></span>
 <span><span class="kw">library</span><span class="op">(</span><span class="va">gplots</span><span class="op">)</span></span>
 <span><span class="kw">library</span><span class="op">(</span><span class="va">UsingR</span><span class="op">)</span></span>
 <span><span class="kw">library</span><span class="op">(</span><span class="va">class</span><span class="op">)</span></span>
-<span><span class="kw">library</span><span class="op">(</span><span class="va">caret</span><span class="op">)</span></span>
-<span><span class="kw">library</span><span class="op">(</span><span class="va">UsingR</span><span class="op">)</span></span></code></pre>
-<p>{: .r}</p>
+<span><span class="kw">library</span><span class="op">(</span><span class="va">caret</span><span class="op">)</span></span></code></pre>
 </li>
 <li>
 <p>Install and load packages from Bioconductor.</p>
@@ -448,7 +446,6 @@ library(Biobase)
 library(SpikeIn)
 library(hgu95acdf)
 data(SpikeIn95)</code></pre>
-<p>{: .r}</p>
 </li>
 </ol><!--
 Place links that you need to refer to multiple times across pages here. Delete

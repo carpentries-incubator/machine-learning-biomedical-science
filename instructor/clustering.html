@@ -428,9 +428,7 @@ Number of objects: 189 </code></pre>
 <figure style="text-align: center"><img src="../fig/clustering-rendered-dendrogram-1.png" alt="Dendrogram showing hierarchical clustering of tissue gene expression data." class="figure mx-auto d-block"><figcaption>
 Dendrogram showing hierarchical clustering of tissue gene expression
 data.
-</figcaption></figure><figure><img src=".././fig/02-clustering-dendrogram-1.png" alt="Dendrogram showing hierarchical clustering of tissue gene expression data." class="figure mx-auto d-block"><div class="figcaption">Dendrogram showing hierarchical clustering of
-tissue gene expression data.</div>
-</figure><p>Does this technique “discover” the clusters defined by the different
+</figcaption></figure><p>Does this technique “discover” the clusters defined by the different
 tissues? In this plot, it is not easy to see the different tissues so we
 add colors by using the <code>myplclust</code> function from the
 <code>rafalib</code> package.</p>
@@ -443,9 +441,7 @@ add colors by using the <code>myplclust</code> function from the
 <figure style="text-align: center"><img src="../fig/clustering-rendered-color_dendrogram-1.png" alt="Dendrogram showing hierarchical clustering of tissue gene expression data with colors denoting tissues." class="figure mx-auto d-block"><figcaption>
 Dendrogram showing hierarchical clustering of tissue gene expression
 data with colors denoting tissues.
-</figcaption></figure><figure><img src=".././fig/02-clustering-color_dendrogram-1.png" alt="Dendrogram showing hierarchical clustering of tissue gene expression data with colors denoting tissues." class="figure mx-auto d-block"><div class="figcaption">Dendrogram showing hierarchical clustering of
-tissue gene expression data with colors denoting tissues.</div>
-</figure><p>Visually, it does seem as if the clustering technique has discovered
+</figcaption></figure><p>Visually, it does seem as if the clustering technique has discovered
 the tissues. However, hierarchical clustering does not define specific
 clusters, but rather defines the dendrogram above. From the dendrogram
 we can decipher the distance between any two groups by looking at the
@@ -465,9 +461,8 @@ We use 120 as an example:</p>
 Dendrogram showing hierarchical clustering of tissue gene expression
 data with colors denoting tissues. Horizontal line defines actual
 clusters.
-</figcaption></figure><p><img src=".././fig/02-clustering-color_dendrogram2-1.png" alt="Dendrogram showing hierarchical clustering of tissue gene expression data with colors denoting tissues. Horizontal line defines actual clusters." class="figure">
-If we use the line above to cut the tree into clusters, we can examine
-how the clusters overlap with the actual tissues:</p>
+</figcaption></figure><p>If we use the line above to cut the tree into clusters, we can
+examine how the clusters overlap with the actual tissues:</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -548,10 +543,7 @@ the space of the first two genes:</p>
 Plot of gene expression for first two genes (order of appearance in
 data) with color representing tissue (left) and clusters found with
 kmeans (right).
-</figcaption></figure><figure><img src=".././fig/02-clustering-kmeans-1.png" alt="Plot of gene expression for first two genes (order of appearance in data) with color representing tissue (left) and clusters found with kmeans (right)." class="figure mx-auto d-block"><div class="figcaption">Plot of gene expression for first two genes
-(order of appearance in data) with color representing tissue (left) and
-clusters found with kmeans (right).</div>
-</figure><p>In the first plot, color represents the actual tissues, while in the
+</figcaption></figure><p>In the first plot, color represents the actual tissues, while in the
 second, color represents the clusters that were defined by
 <code>kmeans</code>. We can see from tabulating the results that this
 particular clustering exercise did not perform well:</p>
@@ -593,10 +585,7 @@ plot:</p>
 <figure style="text-align: center"><img src="../fig/clustering-rendered-kmeans_mds-1.png" alt="Plot of gene expression for first two PCs with color representing tissues (left) and clusters found using all genes (right)." class="figure mx-auto d-block"><figcaption>
 Plot of gene expression for first two PCs with color representing
 tissues (left) and clusters found using all genes (right).
-</figcaption></figure><figure><img src=".././fig/02-clustering-kmeans_mds-1.png" alt="Plot of gene expression for first two PCs with color representing tissues (left) and clusters found using all genes (right)." class="figure mx-auto d-block"><div class="figcaption">Plot of gene expression for first two PCs with
-color representing tissues (left) and clusters found using all genes
-(right).</div>
-</figure><p>By tabulating the results, we see that we obtain a similar answer to
+</figcaption></figure><p>By tabulating the results, we see that we obtain a similar answer to
 that obtained with hierarchical clustering.</p>
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -678,9 +667,7 @@ top:</p>
 <figure style="text-align: center"><img src="../fig/clustering-rendered-heatmap.2-1.png" alt="Heatmap created using the 40 most variable genes and the function heatmap.2." class="figure mx-auto d-block"><figcaption>
 Heatmap created using the 40 most variable genes and the function
 heatmap.2.
-</figcaption></figure><figure><img src=".././fig/02-clustering-heatmap.2-1.png" alt="Heatmap created using the 40 most variable genes and the function heatmap.2." class="figure mx-auto d-block"><div class="figcaption">Heatmap created using the 40 most variable genes
-and the function heatmap.2.</div>
-</figure><p>We did not use tissue information to create this heatmap, and we can
+</figcaption></figure><p>We did not use tissue information to create this heatmap, and we can
 quickly see, with just 40 genes, good separation across tissues.</p>
 <div id="exercise-1" class="callout challenge">
 <div class="callout-square">
