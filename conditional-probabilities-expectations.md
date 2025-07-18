@@ -61,47 +61,19 @@ son, we would go with the average height:
 
 ``` r
 library(rafalib)
+library(UsingR)
 mypar(1, 1)
 data(father.son, package="UsingR")
-```
-
-``` error
-Error in find.package(package, lib.loc, verbose = verbose): there is no package called 'UsingR'
-```
-
-``` r
 x=round(father.son$fheight) ## round to nearest inch
-```
-
-``` error
-Error: object 'father.son' not found
-```
-
-``` r
 y=round(father.son$sheight)
-```
-
-``` error
-Error: object 'father.son' not found
-```
-
-``` r
 hist(y, breaks=seq(min(y), max(y)))
-```
-
-``` error
-Error: object 'y' not found
-```
-
-``` r
 abline(v=mean(y), col="red", lwd=2)
 ```
 
-``` error
-Error: object 'y' not found
-```
-
-![Histogram of son heights.](./fig/03-conditional-probabilities-expectations-height_hist-1.png)
+<div class="figure" style="text-align: center">
+<img src="fig/conditional-probabilities-expectations-rendered-height_hist-1.png" alt="Histogram of son heights."  />
+<p class="caption">Histogram of son heights.</p>
+</div>
 
 In this case, we can also approximate the distribution of $Y$ as normal, which 
 implies the mean maximizes the probability density. 
@@ -118,22 +90,8 @@ plot(x, y,
      ylab="Son's height in inches",
      main=paste("correlation =",
                 signif(cor(x, y), 2)))
-```
-
-``` error
-Error: object 'x' not found
-```
-
-``` r
 abline(v=c(-0.35, 0.35) + 71,
        col="red")
-```
-
-``` error
-Error in int_abline(a = a, b = b, h = h, v = v, untf = untf, ...): plot.new has not been called yet
-```
-
-``` r
 hist(y[x==71], 
      xlab="Heights", 
      nc=8, 
@@ -141,12 +99,10 @@ hist(y[x==71],
      xlim=range(y))
 ```
 
-``` error
-Error: object 'y' not found
-```
-
-![Son versus father height (left) with the red lines denoting the stratum defined by conditioning on fathers being 71 inches tall. Conditional distribution: son height distribution of stratum defined by 71 inch fathers.](./fig/03-conditional-probabilities-expectations-conditional_distribution-1.png)
-
+<div class="figure" style="text-align: center">
+<img src="fig/conditional-probabilities-expectations-rendered-conditional_distribution-1.png" alt="Son versus father height (left) with the red lines denoting the stratum defined by conditioning on fathers being 71 inches tall. Conditional distribution: son height distribution of stratum defined by 71 inch fathers."  />
+<p class="caption">Son versus father height (left) with the red lines denoting the stratum defined by conditioning on fathers being 71 inches tall. Conditional distribution: son height distribution of stratum defined by 71 inch fathers.</p>
+</div>
 The best guess is still the expectation, but our strata has changed from all the
 data, to only the $Y$ with $X=71$. So we can stratify and take the average, 
 which is the conditional expectation. Our prediction for any $x$ is therefore:
@@ -173,58 +129,24 @@ plot(x, y,
      ylab="Son's height in inches",
      main=paste("correlation =",
                 signif(cor(x,y),2)))
-```
-
-``` error
-Error: object 'x' not found
-```
-
-``` r
 abline(v=c(-0.35, 0.35) + 71,
        col="red")
-```
 
-``` error
-Error in int_abline(a = a, b = b, h = h, v = v, untf = untf, ...): plot.new has not been called yet
-```
-
-``` r
 fit <- lm(y ~ x)
-```
-
-``` error
-Error in eval(predvars, data, env): object 'y' not found
-```
-
-``` r
 abline(fit, col=1)
-```
 
-``` error
-Error: object 'fit' not found
-```
-
-``` r
 hist(y[x==71],
      xlab="Heights",
      nc=8,
      main="",
      xlim=range(y))
-```
-
-``` error
-Error: object 'y' not found
-```
-
-``` r
 abline(v = fit$coef[1] + fit$coef[2]*71, col=1)
 ```
 
-``` error
-Error: object 'fit' not found
-```
-
-![Son versus father height showing predicted heights based on regression line (left). Conditional distribution with vertical line representing regression prediction.](./fig/03-conditional-probabilities-expectations-regression-1.png)
+<div class="figure" style="text-align: center">
+<img src="fig/conditional-probabilities-expectations-rendered-regression-1.png" alt="Son versus father height showing predicted heights based on regression line (left). Conditional distribution with vertical line representing regression prediction."  />
+<p class="caption">Son versus father height showing predicted heights based on regression line (left). Conditional distribution with vertical line representing regression prediction.</p>
+</div>
 
 In this particular case, the regression line provides an optimal prediction 
 function for $Y$. But this is not generally true because, in the typical machine
