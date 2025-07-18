@@ -581,10 +581,7 @@ Attaching package: 'rafalib'</code></pre>
 <figure style="text-align: center"><img src="fig/cross-validation-rendered-mds-1.png" alt="First two PCs of the tissue gene expression data with color representing tissue. We use these two PCs as our two predictors throughout." class="figure mx-auto d-block"><figcaption>
 First two PCs of the tissue gene expression data with color representing
 tissue. We use these two PCs as our two predictors throughout.
-</figcaption></figure><figure><img src="./fig/06-cross-validation-mds-1.png" alt="First two PCs of the tissue gene expression data with color representing tissue. We use these two PCs as our two predictors throughout." class="figure mx-auto d-block"><div class="figcaption">First two PCs of the tissue gene expression data
-with color representing tissue. We use these two PCs as our two
-predictors throughout.</div>
-</figure><p>Now we can try out the k-nearest neighbors method on a single fold.
+</figcaption></figure><p>Now we can try out the k-nearest neighbors method on a single fold.
 We provide the <code>knn</code> function with all the samples in
 <code>Xsmall</code> <em>except</em> those which are in the first fold.
 We remove these samples using the code <code>-idx[[1]]</code> inside the
@@ -699,9 +696,7 @@ to see in what region there might be a minimal error rate:</p>
 </div>
 <figure style="text-align: center"><img src="fig/cross-validation-rendered-misclassification_error-1.png" alt="Misclassification error versus number of neighbors." class="figure mx-auto d-block"><figcaption>
 Misclassification error versus number of neighbors.
-</figcaption></figure><figure><img src="./fig/06-cross-validation-misclassification_error-1.png" alt="Misclassification error versus number of neighbors." class="figure mx-auto d-block"><div class="figcaption">Misclassification error versus number of
-neighbors.</div>
-</figure><p>Remember, because the training set is a random sample and because our
+</figcaption></figure><p>Remember, because the training set is a random sample and because our
 fold-generation procedure involves random number generation, the “best”
 value of k we pick through this procedure is also a random variable. If
 we had new training data and if we recreated our folds, we might get a
@@ -730,9 +725,7 @@ prediction:</p>
 <figure style="text-align: center"><img src="fig/cross-validation-rendered-misclassification_error2-1.png" alt="Misclassification error versus number of neighbors when we use 5 dimensions instead of 2." class="figure mx-auto d-block"><figcaption>
 Misclassification error versus number of neighbors when we use 5
 dimensions instead of 2.
-</figcaption></figure><figure><img src="./fig/06-cross-validation-misclassification_error2-1.png" alt="Misclassification error versus number of neighbors when we use 5 dimensions instead of 2." class="figure mx-auto d-block"><div class="figcaption">Misclassification error versus number of
-neighbors when we use 5 dimensions instead of 2.</div>
-</figure><p>Important note: we applied <code>cmdscale</code> to the entire
+</figcaption></figure><p>Important note: we applied <code>cmdscale</code> to the entire
 dataset to create a smaller one for illustration purposes. However, in a
 real machine learning application, this may result in an underestimation
 of test set error for small sample sizes, where dimension reduction
