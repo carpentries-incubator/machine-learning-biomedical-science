@@ -165,7 +165,13 @@ y = y[ind]
 x = x[ind]
 ```
 
+
+:::::::::::::::: solution
+NA
+:::::::::::::::::::::::::
+
 ## Exercise 2
+
 Using the data generated above, what is the E(Y | X = 176)?
 
 :::::::::::::::: solution
