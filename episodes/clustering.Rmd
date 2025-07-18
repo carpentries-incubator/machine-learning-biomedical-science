@@ -20,9 +20,8 @@ exercises: 30
 
 We will demonstrate the concepts and code needed to perform clustering analysis with the tissue gene expression data:
 
-```{r, eval=FALSE}
-library(tissuesGeneExpression)
-data(tissuesGeneExpression)
+```{r}
+load("data/tissuesGeneExpression.rda")
 ```
 
 To illustrate the main application of clustering in the life sciences, let's pretend that we don't know these are different tissues and are interested in clustering. The first step is to compute the distance between each sample:
