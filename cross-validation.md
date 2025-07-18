@@ -216,8 +216,6 @@ legend("topleft",levels(factor(y)),fill=seq_along(levels(factor(y))))
 <p class="caption">First two PCs of the tissue gene expression data with color representing tissue. We use these two PCs as our two predictors throughout.</p>
 </div>
 
-![First two PCs of the tissue gene expression data with color representing tissue. We use these two PCs as our two predictors throughout.](./fig/06-cross-validation-mds-1.png)
-
 Now we can try out the k-nearest neighbors method on a single fold. We provide 
 the `knn` function with all the samples in `Xsmall` *except* those which are in 
 the first fold. We remove these samples using the code `-idx[[1]]` inside the 
@@ -327,8 +325,6 @@ plot(ks, res, type="o", ylab="misclassification error")
 <p class="caption">Misclassification error versus number of neighbors.</p>
 </div>
 
-![Misclassification error versus number of neighbors.](./fig/06-cross-validation-misclassification_error-1.png)
-
 Remember, because the training set is a random sample and because our 
 fold-generation procedure involves random number generation, the "best" value of 
 k we pick through this procedure is also a random variable. If we had new 
@@ -359,8 +355,6 @@ plot(ks, res, type="o",ylim=c(0,0.20),ylab="misclassification error")
 <img src="fig/cross-validation-rendered-misclassification_error2-1.png" alt="Misclassification error versus number of neighbors when we use 5 dimensions instead of 2."  />
 <p class="caption">Misclassification error versus number of neighbors when we use 5 dimensions instead of 2.</p>
 </div>
-
-![Misclassification error versus number of neighbors when we use 5 dimensions instead of 2.](./fig/06-cross-validation-misclassification_error2-1.png)
 
 Important note: we applied `cmdscale` to the entire dataset to create
 a smaller one for illustration purposes. However, in a real machine
@@ -547,7 +541,6 @@ min(error_rate_avg) # minimum error rate
 Repeat exercise 4, but now perform the t-test filtering before the cross
 validation. Note how this biases the entire result and gives us much lower 
 estimated error rates.
-
 
 :::::::::::::::: solution
 
