@@ -349,8 +349,8 @@
 <div class="card-body">
 <div class="inner">
 <h3 class="card-title">Questions</h3>
-<ul><li>“Can a model be fitted to a dataset which shape is unknown but
-smooth?”</li>
+<ul><li>Can a model be fitted to a dataset which shape is unknown but
+smooth?</li>
 </ul></div>
 </div>
 </div>
@@ -358,10 +358,10 @@ smooth?”</li>
 <div class="card-body">
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
-<ul><li>“Fit a smooth regression model to data which behavior depends
-conditionally on a set of predictors”</li>
-<li>“Predict the expected value of a smooth model given the value of the
-predictors”</li>
+<ul><li>Fit a smooth regression model to data which behavior depends
+conditionally on a set of predictors.</li>
+<li>Predict the expected value of a smooth model given the value of the
+predictors.</li>
 </ul></div>
 </div>
 </div>
@@ -381,7 +381,7 @@ RNA samples.</p>
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">##Following three packages are available from Bioconductor</span></span>
+<code class="sourceCode R"><span><span class="co">## Following three packages are available from Bioconductor</span></span>
 <span><span class="kw">library</span><span class="op">(</span><span class="va">Biobase</span><span class="op">)</span></span>
 <span><span class="kw">library</span><span class="op">(</span><span class="va">SpikeIn</span><span class="op">)</span></span>
 <span><span class="kw">library</span><span class="op">(</span><span class="va">hgu95acdf</span><span class="op">)</span></span>
@@ -400,9 +400,7 @@ way that balances the number of points for different strata of <span class="math
 </div>
 <figure style="text-align: center"><img src="../fig/smoothing-rendered-MAplot-1.png" alt="MA-plot comparing gene expression from two arrays." class="figure mx-auto d-block"><figcaption>
 MA-plot comparing gene expression from two arrays.
-</figcaption></figure><figure><img src=".././fig/04-smoothing-MAplot-1.png" alt="MA-plot comparing gene expression from two arrays." class="figure mx-auto d-block"><div class="figcaption">MA-plot comparing gene expression from two
-arrays.</div>
-</figure><p>In the MA plot we see that <span class="math inline">\(Y\)</span>
+</figcaption></figure><p>In the MA plot we see that <span class="math inline">\(Y\)</span>
 depends on <span class="math inline">\(X\)</span>. This dependence must
 be a bias because these are based on replicates, which means <span class="math inline">\(Y\)</span> should be 0 on average regardless of
 <span class="math inline">\(X\)</span>. We want to predict <span class="math inline">\(f(x)=\mbox{E}(Y \mid X=x)\)</span> so that we can
@@ -421,10 +419,7 @@ curvature in <span class="math inline">\(f(x)\)</span>:</p>
 <figure style="text-align: center"><img src="../fig/smoothing-rendered-MAplot_with_regression_line-1.png" alt="MA-plot comparing gene expression from two arrays with fitted regression line. The two colors represent positive and negative residuals." class="figure mx-auto d-block"><figcaption>
 MA-plot comparing gene expression from two arrays with fitted regression
 line. The two colors represent positive and negative residuals.
-</figcaption></figure><figure><img src=".././fig/04-smoothing-MAplot_with_regression_line-1.png" alt="MA-plot comparing gene expression from two arrays with fitted regression line. The two colors represent positive and negative residuals." class="figure mx-auto d-block"><div class="figcaption">MA-plot comparing gene expression from two
-arrays with fitted regression line. The two colors represent positive
-and negative residuals.</div>
-</figure><p>The points above the fitted line (green) and those below (purple) are
+</figcaption></figure><p>The points above the fitted line (green) and those below (purple) are
 not evenly distributed. We therefore need an alternative more flexible
 approach.</p>
 </section><section><h2 class="section-heading" id="bin-smoothing">Bin Smoothing<a class="anchor" aria-label="anchor" href="#bin-smoothing"></a></h2>
@@ -440,23 +435,17 @@ not shown):</p>
 <figure style="text-align: center"><img src="../fig/smoothing-rendered-binsmoother-1.png" alt="MAplot comparing gene expression from two arrays with bin smoother fit shown for two points." class="figure mx-auto d-block"><figcaption>
 MAplot comparing gene expression from two arrays with bin smoother fit
 shown for two points.
-</figcaption></figure><figure><img src=".././fig/04-smoothing-binsmoother-1.png" alt="MAplot comparing gene expression from two arrays with bin smoother fit shown for two points." class="figure mx-auto d-block"><div class="figcaption">MAplot comparing gene expression from two arrays
-with bin smoother fit shown for two points.</div>
-</figure><p>By computing this mean for bins around every point, we form an
+</figcaption></figure><p>By computing this mean for bins around every point, we form an
 estimate of the underlying curve <span class="math inline">\(f(x)\)</span>. Below we show the procedure
 happening as we move from the smallest value of <span class="math inline">\(x\)</span> to the largest. We show 10 intermediate
 cases as well (code not shown):</p>
 <figure style="text-align: center"><img src="../fig/smoothing-rendered-bin_smoothing_demo-1.png" alt="Illustration of how bin smoothing estimates a curve. Showing 12 steps of process." class="figure mx-auto d-block"><figcaption>
 Illustration of how bin smoothing estimates a curve. Showing 12 steps of
 process.
-</figcaption></figure><figure><img src=".././fig/04-smoothing-bin_smoothing_demo-1.png" alt="Illustration of how bin smoothing estimates a curve. Showing 12 steps of process." class="figure mx-auto d-block"><div class="figcaption">Illustration of how bin smoothing estimates a
-curve. Showing 12 steps of process.</div>
-</figure><p>The final result looks like this (code not shown):</p>
+</figcaption></figure><p>The final result looks like this (code not shown):</p>
 <figure style="text-align: center"><img src="../fig/smoothing-rendered-bin_smooth_final-1.png" alt="MA-plot with curve obtained with bin-smoothed curve shown." class="figure mx-auto d-block"><figcaption>
 MA-plot with curve obtained with bin-smoothed curve shown.
-</figcaption></figure><figure><img src=".././fig/04-smoothing-bin_smooth_final-1.png" alt="MA-plot with curve obtained with bin-smoothed curve shown." class="figure mx-auto d-block"><div class="figcaption">MA-plot with curve obtained with bin-smoothed
-curve shown.</div>
-</figure><p>There are several functions in R that implement bin smoothers. One
+</figcaption></figure><p>There are several functions in R that implement bin smoothers. One
 example is <code>ksmooth</code>. However, in practice, we typically
 prefer methods that use slightly more complicated models than fitting a
 constant. The final result above, for example, is somewhat wiggly.
@@ -473,22 +462,17 @@ slightly more flexibility.</p>
 <figure style="text-align: center"><img src="../fig/smoothing-rendered-loess-1.png" alt="MA-plot comparing gene expression from two arrays with bin local regression fit shown for two points." class="figure mx-auto d-block"><figcaption>
 MA-plot comparing gene expression from two arrays with bin local
 regression fit shown for two points.
-</figcaption></figure><figure><img src=".././fig/04-smoothing-loess-1.png" alt="MA-plot comparing gene expression from two arrays with bin local regression fit shown for two points." class="figure mx-auto d-block"><div class="figcaption">MA-plot comparing gene expression from two
-arrays with bin local regression fit shown for two points.</div>
-</figure><p>As we did for the bin smoother, we show 12 steps of the process that
+</figcaption></figure><p>As we did for the bin smoother, we show 12 steps of the process that
 leads to a loess fit (code not shown):</p>
 <figure style="text-align: center"><img src="../fig/smoothing-rendered-loess_demo-1.png" alt="Illustration of how loess estimates a curve. Showing 12 steps of the process." class="figure mx-auto d-block"><figcaption>
 Illustration of how loess estimates a curve. Showing 12 steps of the
 process.
-</figcaption></figure><figure><img src=".././fig/04-smoothing-loess_demo-1.png" alt="Illustration of how loess estimates a curve. Showing 12 steps of the process." class="figure mx-auto d-block"><div class="figcaption">Illustration of how loess estimates a curve.
-Showing 12 steps of the process.</div>
-</figure><p>The final result is a smoother fit than the bin smoother since we use
+</figcaption></figure><p>The final result is a smoother fit than the bin smoother since we use
 larger sample sizes to estimate our local parameters (code not
 shown):</p>
 <figure style="text-align: center"><img src="../fig/smoothing-rendered-loess_final-1.png" alt="MA-plot with curve obtained with loess." class="figure mx-auto d-block"><figcaption>
 MA-plot with curve obtained with loess.
-</figcaption></figure><figure><img src=".././fig/04-smoothing-loess_final-1.png" alt="MA-plot with curve obtained with loess." class="figure mx-auto d-block"><div class="figcaption">MA-plot with curve obtained with loess.</div>
-</figure><p>The function <code>loess</code> performs this analysis for us:</p>
+</figcaption></figure><p>The function <code>loess</code> performs this analysis for us:</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -504,8 +488,7 @@ MA-plot with curve obtained with loess.
 </div>
 <figure style="text-align: center"><img src="../fig/smoothing-rendered-loess2-1.png" alt="Loess fitted with the loess function." class="figure mx-auto d-block"><figcaption>
 Loess fitted with the loess function.
-</figcaption></figure><figure><img src=".././fig/04-smoothing-loess2-1.png" alt="Loess fitted with the loess function." class="figure mx-auto d-block"><div class="figcaption">Loess fitted with the loess function.</div>
-</figure><p>There are three other important differences between
+</figcaption></figure><p>There are three other important differences between
 <code>loess</code> and the typical bin smoother. The first is that
 rather than keeping the bin size the same, <code>loess</code> keeps the
 number of points used in the local fit the same. This number is
@@ -571,7 +554,7 @@ parameters. What is the predicted f(168)?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -620,7 +603,7 @@ report the SE of the loess-based estimate.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -659,9 +642,9 @@ report the SE of the loess-based estimate.</p>
 <div class="callout-inner">
 <h3 class="callout-title">Key Points</h3>
 <div class="callout-content">
-<ul><li>“The smoothing methods work well when used inside the range of
+<ul><li>The smoothing methods work well when used inside the range of
 predictor values seen in the training set, however them are not suitable
-for extrapolation the prediction outside those ranges.”</li>
+for extrapolation the prediction outside those ranges.</li>
 </ul></div>
 </div>
 </div>
