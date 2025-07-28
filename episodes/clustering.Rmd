@@ -14,6 +14,7 @@ exercises: 30
 ::::::
 
 ```{r, include=FALSE}
+data(episodes/data/tissuesGeneExpression)
 ```
 
 ## Clustering 
