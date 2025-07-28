@@ -23,20 +23,12 @@ Alternatively, you can use the R console to run the following commands for step
    dir.create("./scripts")
    dir.create("./results")
    ~~~
-   {: .r}
    
 ## Data Sets
 
 Download the tissue gene expression 
 [data directly from Github](https://github.com/genomicsclass/tissuesGeneExpression/blob/master/data/tissuesGeneExpression.rda) 
 and place them in your new `data` directory.
-
-Load the library and data.
-   ~~~
-   library(tissuesGeneExpression) 
-   data(tissuesGeneExpression)
-   ~~~
-   {: .r}
    
 The data represent RNA expression levels for eight tissues, each with several
 individuals.
@@ -46,7 +38,8 @@ individuals.
 1. Install R packages and load the libraries.
 
     ~~~
-   install.packages("rafalib", "RColorBrewer", "gplots", "UsingR", "class", "caret")
+   install.packages("rafalib", "RColorBrewer", "gplots", 
+                    "UsingR", "class", "caret")
    library(rafalib)
    library(RColorBrewer)
    library(gplots)
@@ -54,7 +47,6 @@ individuals.
    library(class)
    library(caret)
    ~~~
-   {: .r}
 
 2. Install and load packages from Bioconductor.
 
@@ -62,11 +54,10 @@ individuals.
    if (!require("BiocManager", quietly = TRUE))
         install.packages("BiocManager")
    
-   BiocManager::install(c("genefilter", "Biobase", "SpikeIn", "hgu95acdf")
+   BiocManager::install(c("genefilter", "Biobase", "SpikeIn", "hgu95acdf"))
    library(genefilter)
    library(Biobase)
    library(SpikeIn)
    library(hgu95acdf)
    data(SpikeIn95)
    ~~~
-   {: .r}
