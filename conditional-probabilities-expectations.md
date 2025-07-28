@@ -50,8 +50,6 @@ $$
 
 #### Regression in the context of prediction
 
-<a name="regression"></a>
-
 We use the son and father height example to illustrate how regression can be 
 interpreted as a machine learning technique. In our example, we are trying to 
 predict the son's height $Y$ based on the father's $X$. Here we have only one 
@@ -63,6 +61,7 @@ son, we would go with the average height:
 library(rafalib)
 library(UsingR)
 mypar(1, 1)
+library()
 data(father.son, package="UsingR")
 x=round(father.son$fheight) ## round to nearest inch
 y=round(father.son$sheight)
